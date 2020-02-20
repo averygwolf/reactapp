@@ -1,38 +1,106 @@
-.App {
-  text-align: center;
+
+*{
+  box-sizing:border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,body,#root {
+  height: 100%;
+  position: fixed;
+  top:0;left:0;bottom:0;right:0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header{
+  font-family: Roboto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+}
+
+.leftsection{
+  background-color: #F6F7FF;
+  font-size: 1.5rem;
+  width: 33rem;
+  color: #2C25B8;
+  height: 100rem;
+  align-items: center;
+}
+
+.middlesection{
+  background-color: white;
+  font-size: 1.5rem;
+  color: #2C25B8;
+  width: 33rem;
+  height: 100rem;
+}
+
+.rightsection{
+  background-color: #D3D7F5;
+  font-size: 1.5rem;
+  color: #2C25B8;
+  width:33rem;
+  height: 100rem;
+}
+
+.sectioncontent{
+  display: flex;
+  align-items: center;
+}
+
+.title1, .title2, .title3{
+  display:flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.title2{
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.subtitle1{
+  display: flex;
+  align-items: left;
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.dates{
+  display: flex;
+  align-items: left;
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 1rem;
+}
+
+.card{
+  display: flex;
+  align-items: left;
+  margin-left: 50px;
+  font-size: 1rem;
+  flex-direction: column;
+}
+
+.cardwrap{
+  display: flex;
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 1rem;
+  flex-direction: row;
+  align-items: center;
+}
+
+.subject{
+  color: gray;
 }
