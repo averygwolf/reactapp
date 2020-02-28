@@ -54,6 +54,7 @@ header{
   align-items: center;
 }
 
+
 .title1, .title2, .title3{
   display:flex;
   justify-content: center;
@@ -140,7 +141,8 @@ header{
   display: flex;
   align-items: left;
   font-size: 1rem;
-  flex-direction: column;
+  flex-direction: row;
+  margin-top: 15px;
 }
 
 .note1{
@@ -153,15 +155,17 @@ header{
 
 .cardwrap{
   display: flex;
-  margin-left: 50px;
   margin-top: 50px;
   font-size: 1rem;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  margin-left: 50px;
 }
 
 .subject{
   color: gray;
+  display: flex;
+  margin-top: 8px;
+  align-items: center;
 }
 
 .date{
@@ -181,7 +185,7 @@ header{
   background: #2C25B8; 
   color: white;
   width: 300px;
-  border-radius: 10px;
+  border-radius: 15px;
   padding-left: 10px;
   height: 25px;
   align-items: center;
@@ -218,15 +222,17 @@ header{
 
 .calendarwrap{
   margin-top: 15px;
+  position: relative;
 }
 
 p{
   color:#2C25B8;
 }
 
-.selected{
-  background: #2C25B8;
+.current{
+  background-color: #2C25B8;
   color: white;
+  border:none;
 }
 
 .subjectcolor{
@@ -240,3 +246,36 @@ p{
   margin-right: 20px;
 }
 
+.checkbox{
+  color: #2C25B8;
+}
+
+.current {
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  z-index: -80;
+}
+
+.selected {
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);  
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  z-index: 100 !important;
+}
+.day p {
+  z-index: 101 !important;
+}
+.non-current {
+  opacity: 0.2;
+}
+
+.addbutton {
+  color: #2C25B8;
+}

@@ -1,5 +1,5 @@
 import './App.css';
-import { MdControlPoint, MdSearch, MdCropDin, MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
+import { MdControlPoint, MdSearch, MdCropDin, MdKeyboardArrowRight, MdKeyboardArrowLeft, MdNoEncryption } from "react-icons/md";
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Calendar from 'react-calendar-material';
@@ -26,6 +26,44 @@ function App() {
     }
   ])
   
+  const [notes, setNotes] = useState([
+    {
+      date: 'Saturday, February 22nd',
+      items:[
+        {
+          subject:'HCDE 438: ',
+          label: 'Project Proposal'
+        },
+        {
+          label:'EcoCar: Make meeting slides'
+        }
+      ]
+    },{
+      date:'Sunday, March 1st',
+      items:[
+        {
+          label: 'HCDE 300: Readings'
+        }
+      ]
+    }
+  ])
+
+  const [adding, setAdding] = useState(false)
+
+  function addNote(date,text){
+    const newNote = [...notes]
+    const notesForDate = newNote.find(t=>t.date===date)
+    if (notesForDate){
+      notesForDate.items.push({label:text})
+    } else {
+      newNote.push({
+        date:date,
+        items:[{label:text}]
+      })
+    }
+    setNotes(newNote)
+  }
+
   function addTodo(date,text){
     const newTodos = [...todos]
     const todosForDate = newTodos.find(t=>t.date===date)
@@ -38,6 +76,16 @@ function App() {
       })
     }
     setTodos(newTodos)
+  }
+
+  function colorPicker(subject){
+    if (subject==='HCDE 438') {
+      return 'red'
+    } else if (subject==='EcoCar') {
+      return 'green'
+    } else {
+      return 'blue'
+    }  
   }
 
   return (
@@ -64,39 +112,65 @@ function App() {
         <div className='calendarwrap'>
           <Calendar 
             showHeader={false}
-            accentColor={'black'}
+            accentColor={'#b7b6d1'}
           />
         </div>
       </div>
     </div>
+
+
     <div className='middlesection'>
       <div className='title2'>
           To-Do List
-          <MdSearch style={{color: 'gray', 'margin-left':100, height:25, width:25}} />
-          <MdControlPoint style={{'margin-left':5, height:25, width:25}} />
+          <button className='searchbutton' onClick={() => {
+            
+          }}
+            style={{border: 'none', 'margin-left':5, height:25, width:25}}>
+            <MdSearch style={{color: 'gray', 'margin-left':10, height:25, width:25}} />
+          </button>
+          <button className='addbutton' onClick={() => {
+            setAdding(!adding)
+          }}
+            style={{border: 'none', 'margin-left':15, height:25, width:25}}>
+            <MdControlPoint style={{height:25, width:25}} />
+          </button>
       </div>
-      <div className='subtitle1'>
-        Upcoming
-      </div>
-      <div className='dates'>
-        Saturday, February 22nd
-      </div>
-      <div className='cardwrap'>
-        <MdCropDin style={{'margin-left':5, height:20, width:20}} />
-        <div className='subjectcolor'> </div>
-        <div className='card'>
-          <div className='subject'>
-            HCDE 438
-          </div>
-          Project Proposal
+     {!adding && <div>
+        <div className='subtitle1'>
+          Upcoming
         </div>
-      </div>
+        <div className='cardwrap'>
+
+          {notes.map(notesForDate=>{
+          return <div>
+            <div className='card'>
+              {notesForDate.date}
+            </div>
+            {notesForDate.items.map(notes=>{
+              return <div className='subject'>
+                <MdCropDin className='checkbox' style={{'margin-left':5, height:20, width:20}} />
+                <colorPicker subject={notes.subject} />
+                <div className='subjectcolor'> </div>
+                {notes.subject}
+                {notes.label}
+              </div>
+            })}
+          </div>
+          })}
+        </div>
+      </div>}
+      {adding && <div>
+        adding!  
+      </div>}
     </div>
+
+
+
     <div className='rightsection'>
       <div className='title3'>
           Notes
+          <MdControlPoint style={{'margin-left':150, height:25, width:25}} />
       </div>
-      
       {todos.map(todosForDate=>{
         return <div>
           <div className='date'>
