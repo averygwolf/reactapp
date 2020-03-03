@@ -279,3 +279,10 @@ p{
 .addbutton {
   color: #2C25B8;
 }
+
+.MuiFormControl-root{
+  display: flex;
+  justify-content: center !important;
+  margin-left: 100px;
+  color: #2C25B8;
+}

@@ -166,9 +166,11 @@ function App() {
         <div className='subtitle1'>
           Add a new to do item:
         </div> 
+        <div className='card'>
         <MuiPickersUtilsProvider utils={DateFnsUtils}> 
-        <InlineDatePicker onChange={console.log} value={new Date()} />
+        <InlineDatePicker inputVariant="outlined" onChange={console.log} value={new Date()} />
         </MuiPickersUtilsProvider>
+        </div>
       </div>
       }
     </div>
@@ -178,8 +180,14 @@ function App() {
     <div className='rightsection'>
       <div className='title3'>
           Notes
-          <MdControlPoint style={{'margin-left':150, height:25, width:25}} />
+          <button className='addbutton' onClick={() => {
+            setAdding(!adding)
+          }}
+            style={{border: 'none', 'margin-left':150, height:25, width:25}}>
+            <MdControlPoint style={{height:25, width:25}} />
+          </button>
       </div>
+      {!adding && <div>
       {todos.map(todosForDate=>{
         return <div>
           <div className='date'>
@@ -195,6 +203,14 @@ function App() {
           })}
         </div>
       })}
+      </div>
+      }
+      {adding && <div>
+        something
+      
+      
+      </div>
+      }   
     </div>
   </header>
   );
