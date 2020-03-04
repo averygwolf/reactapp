@@ -175,6 +175,7 @@ header{
   margin-top: 50px;
   font-size: 1rem;
   color: gray;
+  flex-direction: column;
 }
 
 .note1{
@@ -278,6 +279,7 @@ p{
 
 .addbutton {
   color: #2C25B8;
+  background: transparent;
 }
 
 .MuiFormControl-root{
@@ -285,4 +287,39 @@ p{
   justify-content: center !important;
   margin-left: 100px;
   color: #2C25B8;
+}
+
+.notetitle{
+  width: 250px;
+  color: #2C25B8;
+}
+
+.notetext{
+  margin-top: 25px !important;
+  width: 250px;
+}
+
+
+.savebutton{
+  border: 'none';
+  margin-left: 150px;
+  margin-top: 25px;
+  height: 25px;
+  width: 50px;
+  border-radius: 15px;
+  background: #2C25B8;
+  color: white;
+}
+
+.datepicker{
+  margin-top: 35px;
+  font-size: 1rem;
+  margin-left: 50px;
+}
+
+.todoitem{
+  width: 250px;
+  color: #2C25B8;
+  margin-left: 50px !important;
+  margin-top: 25px !important;
 }
