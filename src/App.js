@@ -4,9 +4,10 @@ import React, { Fragment, useState } from 'react';
 import { DateTimePicker } from "@material-ui/pickers";
 import ReactDOM from 'react-dom';
 import Calendar from 'react-calendar-material';
-import { MuiPickersUtilsProvider, InlineDatePicker } from "material-ui-pickers";
+import { MuiPickersUtilsProvider, InlineDatePicker, DatePicker } from "material-ui-pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import TextField from '@material-ui/core/TextField';
+import * as moment from 'moment'
 
 function App() {
 
@@ -56,6 +57,11 @@ function App() {
   const [addingToDo, setAddingToDo] = useState(false)
   const [addingNote, setAddingNote] = useState(false)
 
+  const [date, setDate] = useState(null)
+  const [text, setText] = useState('')
+
+  const [selectedDate, handleDateChange] = useState(new Date());
+
   function addNote(date,text){
     const newNote = [...notes]
     const notesForDate = newNote.find(t=>t.date===date)
@@ -94,6 +100,7 @@ function App() {
     }  
   }
 
+  /*
   function BasicDateTimePicker() {
     const [selectedDate, handleDateChange] = useState(new Date());
 
@@ -108,7 +115,7 @@ function App() {
       </Fragment>
     )
   }
-
+  */
 
   return (
   <header>  
@@ -171,7 +178,11 @@ function App() {
         <div className='datepicker'>
         Date: 
         <MuiPickersUtilsProvider utils={DateFnsUtils}> 
-        <InlineDatePicker style={{'margin-left':15}} inputVariant="outlined" onChange={console.log} value={new Date()} />
+        <InlineDatePicker style={{'margin-left':15}} 
+          inputVariant="outlined" 
+          onChange={handleDateChange} 
+          value={selectedDate} 
+          />
         </MuiPickersUtilsProvider>
         </div>
         <div>
@@ -181,10 +192,16 @@ function App() {
             multiline
             rowsMax="4"
             variant='outlined'
+            onChange={e=> setItem(e.target.value)}
+            value={item}
         />
-        <button variant="contained" color="primary" className='savebutton'>
-            Save
+        <button variant="contained" color="primary" className='savebutton' onClick={()=>{
+          const formattedDate = moment(selectedDate).format('MM/DD/YYYY')
+          addTodo(formattedDate, item)        
+          }}>
+          Save
         </button>
+
         </div>
       </div>
       }

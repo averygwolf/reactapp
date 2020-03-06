@@ -238,7 +238,7 @@ p{
 
 .subjectcolor{
   background: red;
-  opacity: 0.5;
+  opacity: 0.4;
   height: 35px;
   width: 2px;
   align-items: left;
@@ -301,7 +301,7 @@ p{
 
 
 .savebutton{
-  border: 'none';
+  border: 'none' !important;
   margin-left: 150px;
   margin-top: 25px;
   height: 25px;
