@@ -317,6 +317,11 @@ p{
   margin-left: 50px;
 }
 
+.datepicker2{
+  margin-top: 35px;
+  font-size: 1rem;
+}
+
 .todoitem{
   width: 250px;
   color: #2C25B8;
