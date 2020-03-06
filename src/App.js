@@ -11,7 +11,7 @@ import * as moment from 'moment'
 
 function App() {
 
-  const [todos, setTodos] = useState([
+  const [notes, setNotes] = useState([
     {
       date: 'Saturday, February 29th',
       items:[
@@ -31,8 +31,8 @@ function App() {
       ]
     }
   ])
-  
-  const [notes, setNotes] = useState([
+
+  const [todos, setTodos] = useState([
     {
       date: 'Saturday, February 22nd',
       items:[
@@ -53,6 +53,7 @@ function App() {
       ]
     }
   ])
+  
 
   const [addingToDo, setAddingToDo] = useState(false)
   const [addingNote, setAddingNote] = useState(false)
@@ -192,12 +193,12 @@ function App() {
             multiline
             rowsMax="4"
             variant='outlined'
-            onChange={e=> setItem(e.target.value)}
-            value={item}
+            onChange={e=> setText(e.target.value)}
+            value={text}
         />
         <button variant="contained" color="primary" className='savebutton' onClick={()=>{
           const formattedDate = moment(selectedDate).format('MM/DD/YYYY')
-          addTodo(formattedDate, item)        
+          addTodo(formattedDate, text)        
           }}>
           Save
         </button>
