@@ -62,7 +62,7 @@ function App() {
 
   const [addingToDo, setAddingToDo] = useState(false)
   const [addingNote, setAddingNote] = useState(false)
-
+  const [clicked, setClicked] = useState(false)
   const [date, setDate] = useState(null)
   const [text, setText] = useState('')
 
@@ -125,12 +125,6 @@ function App() {
     <div className='middlesection'>
       <div className='title2'>
           To-Do List
-          <button className='searchbutton' onClick={() => {
-            
-          }}
-            style={{border: 'none', 'margin-left':5, height:25, width:25}}>
-            <MdSearch style={{color: 'gray', 'margin-left':10, height:25, width:25}} />
-          </button>
           <button className='addbutton' onClick={() => {
             setAddingToDo(!addingToDo)
           }}
@@ -151,7 +145,11 @@ function App() {
             </div>
             {todosForDate.items.map(todos=>{
               return <div className='subject'>
-                <MdCropDin className='checkbox' style={{'margin-left':5, height:20, width:20}} />
+                <button 
+                style={{'margin-left':5, height:20, width:20, border: 'none'}}>
+                <MdCropDin className='checkbox' 
+                style={{height:20, width: 20, border: 'none'}}></MdCropDin>
+                </button>
                 <colorPicker subject={todos.subject} />
                 <div className='subjectcolor'> </div>
                 {todos.label}
