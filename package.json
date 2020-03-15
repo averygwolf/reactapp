@@ -11,6 +11,8 @@
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "date-fns": "^2.10.0",
+    "firebase": "^7.10.0",
+    "firebase-tools": "^7.14.0",
     "material-ui-pickers": "^2.2.4",
     "moment": "^2.24.0",
     "react": "^16.12.0",
