@@ -148,6 +148,7 @@ header{
 
 .note1{
   display: flex;
+  display: inline-block;
   font-size: 1rem;
   flex-direction: column;
   margin-left: 50px;
@@ -308,6 +309,17 @@ p{
   border-radius: 15px;
   background: #2C25B8;
   color: white;
+  align-items: center;
+}
+.savebutton2{
+  border: 'none' !important;
+  margin-top: 25px;
+  height: 25px;
+  width: 50px;
+  border-radius: 15px;
+  background: #2C25B8;
+  color: white;
+  align-items: center;
 }
 
 .datepicker{

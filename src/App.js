@@ -1,8 +1,8 @@
 import './App.css';
-import { MdControlPoint, MdSearch, MdCropDin, MdKeyboardArrowRight, MdKeyboardArrowLeft, MdNoEncryption } from "react-icons/md";
-import React, { Fragment, useState, useEffect } from 'react';
+import { MdControlPoint, MdCropDin } from "react-icons/md";
+import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar-material';
-import { MuiPickersUtilsProvider, InlineDatePicker, DatePicker } from "material-ui-pickers";
+import { MuiPickersUtilsProvider, InlineDatePicker } from "material-ui-pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import TextField from '@material-ui/core/TextField';
 import * as moment from 'moment'
@@ -60,10 +60,9 @@ function App() {
 
   const [addingToDo, setAddingToDo] = useState(false)
   const [addingNote, setAddingNote] = useState(false)
-  const [clicked, setClicked] = useState(false)
-  const [date, setDate] = useState(null)
+
   const [text, setText] = useState('')
-  const [view, setView] = useState(false)
+
 
   const [selectedDate, handleDateChange] = useState(new Date());
 
@@ -259,7 +258,7 @@ function App() {
             variant="outlined"
           />
 
-          <button variant="contained" color="primary" className='savebutton' onClick={()=>{
+          <button variant="contained" color="primary" className='savebutton2' onClick={()=>{
             const formattedDate = moment(selectedDate).format('MM/DD/YYYY')
             addNote(formattedDate, text)     
             setText('')   
